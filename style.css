@@ -1,0 +1,318 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  padding: 0px;
+  background-color: rgb(23, 23, 22);
+  background-size: cover;
+  color: white;
+}
+.container {
+  padding: 0px;
+}
+.container.main {
+  padding: 40px;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+h2 {
+  margin-bottom: 15px;
+}
+.logo {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.logo img {
+  width: 500px;
+}
+.main-wrapper {
+  max-width: 650px;
+  margin: auto;
+  background-color: #ffffff4d;
+  padding: 50px;
+}
+form div {
+  padding: 15px 0;
+}
+form div label {
+  display: block;
+  font-size: bold;
+  font-size: 18px;
+}
+form div input {
+  height: 40px;
+  width: 100%;
+  padding: 0 10px;
+  font-size: 16px;
+}
+
+form div button {
+  padding: 10px 30px;
+  font-size: 16px;
+}
+.no-acc-register {
+  text-align: center;
+  margin-top: 50px;
+}
+.no-acc-register button {
+  padding: 15px;
+  font-size: 16px;
+}
+button {
+  cursor: pointer;
+}
+.no-acc-register p {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.custom-modal {
+  display: none;
+  max-width: 650px;
+  position: absolute;
+  margin: auto;
+  padding: 50px;
+  background-color: #171716;
+  box-shadow: rgba(228, 228, 228, 0.8) 0 0 1000px 1000px;
+  top: 10%;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+.custom-modal button#closeModal {
+  height: 20px;
+  width: 20px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  position: absolute;
+  right: 50px;
+}
+form ul {
+  list-style: none;
+}
+form li {
+  color: #007afe;
+  margin: 5px 0;
+}
+
+.nav-item.dropdown.profilna {
+  background-image: url(img/profile.jpg);
+  background-position: center;
+  background-size: cover;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid white;
+  transition: 0.2s ease;
+}
+.nav-item.dropdown.profilna:hover {
+  filter: drop-shadow(0px 0px 4px rgba(0, 122, 254, 0.8));
+  transform: scale(1.02);
+}
+
+.nav-link.dropdown-toggle::after {
+  color: transparent !important;
+  background-color: transparent !important;
+}
+.inner-container {
+  border: 2px solid white;
+  padding: 15px;
+  background-color: #282828;
+  color: white;
+}
+.inner-container.left-side {
+  text-align: center;
+}
+.inner-container.left-side button {
+  padding: 5px 10px;
+  color: #007afe;
+  background-color: transparent;
+  border: 0;
+}
+.inner-container.left-side #editAccount {
+  color: white;
+}
+.inner-container img.profile {
+  width: 70%;
+  border-radius: 50%;
+  display: block;
+  margin: auto;
+  border: 5px solid white;
+  margin-bottom: 20px;
+}
+.inner-container.center-side form {
+  display: flex;
+  flex-direction: column;
+  height: 80px;
+}
+.inner-container.center-side textarea {
+  resize: none;
+  width: 100%;
+  border: 0;
+  padding: 10px;
+  outline-color: #007afe;
+}
+.inner-container.inner-container.center-side textarea:hover {
+  outline: 1px #007afe;
+}
+
+.inner-container.inner-container.center-side button {
+  background-color: #007afe;
+  color: white;
+  font-size: 18px;
+  outline: 0;
+  transition: all 0.3s ease;
+  border: 2px solid #007afe;
+}
+.inner-container.inner-container.center-side button.Post {
+  width: 15%;
+  background-color: #007afe;
+  color: white;
+  font-size: 18px;
+  outline: 0;
+  transition: all 0.3s ease;
+  border: 2px solid #007afe;
+}
+.inner-container.inner-container.center-side button:hover {
+  border: 2px solid white;
+}
+
+.sh {
+  position: absolute;
+  padding: 0;
+  height: 40px;
+  border: 1px solid #767676;
+  border-left: 0px;
+  right: 50px;
+  width: 42px;
+  font-size: 15px;
+}
+.show2 {
+  position: absolute;
+  padding: 0;
+  height: 40px;
+  border: 1px solid #767676;
+  border-left: 0px;
+  width: 42px;
+  font-size: 15px;
+}
+.show3 {
+  position: absolute;
+  padding: 0;
+  height: 38px;
+  border-color: #007afe;
+  border-left: 0px;
+  border-top-left-radius: 0%;
+  border-bottom-left-radius: 0%;
+  width: 52px;
+  font-size: 15px;
+  margin-left: 170px;
+  background-color: #007afe;
+  color: white;
+}
+.show3:hover {
+  background-color: #3f99f8;
+}
+form div input#login_lozinka {
+  width: calc(100% - 42px);
+  border: 1px solid #767676;
+  border-right: 0;
+}
+#deleteProfile {
+  border: 2px solid #007afe;
+  color: #007afe;
+  font-weight: bolder;
+  background-color: white;
+  font-size: 12px;
+  padding: 5px 15px;
+}
+#allPostsWrapper .single-post {
+  background-color: #eaeaea;
+  padding: 15px;
+  margin-top: 15px;
+  color: #000;
+  border: #007afe 5px solid;
+}
+#allPostsWrapper .single-post .post-content {
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+#allPostsWrapper .single-post .post-comments form {
+  min-height: 30px;
+  margin-top: 15px;
+}
+#allPostsWrapper .single-post .post-comments form input {
+  padding: 5px 10px;
+}
+#allPostsWrapper .single-post .post-comments button {
+  position: relative;
+}
+#allPostsWrapper .single-post .post-comments button:hover {
+  border-color: #eaeaea;
+}
+
+#allPostsWrapper .single-post .post-action {
+  display: flex;
+  justify-content: space-between;
+  color: rgb(105, 105, 105);
+}
+
+#allPostsWrapper .single-post .post-action div button.like-btn {
+  background-image: url('img/like2.png');
+  padding: 5px 15px 5px 40px;
+  background-repeat: no-repeat;
+  background-position: 10px;
+  border: 0;
+}
+#allPostsWrapper .single-post .post-action div button.comment-btn {
+  background: url('img/comment2.png');
+  padding: 5px 15px 5px 40px;
+  background-repeat: no-repeat;
+  background-position: 10px;
+  background-color: #007afe;
+  border: 0;
+}
+#allPostsWrapper .single-post .post-action div button.remove-btn {
+  padding: 5px 10px 4px 10px;
+  font-size: 16px;
+  color: white;
+  border-color: #007afe;
+  text-align: center;
+}
+#allPostsWrapper .single-post .post-comments {
+  transition: all 0.4s ease;
+}
+.content {
+  display: none;
+}
+.activee {
+  display: block !important ;
+  opacity: 1 !important;
+  transition: all 0.4s ease !important;
+}
+#allPostsWrapper .single-post .post-comments .single-comment {
+  border: 2px solid white;
+  padding: 10px;
+  margin-top: 10px;
+}
+#postForm {
+  background-color: #eaeaea;
+  border: 5px solid #007afe;
+  min-height: 120px;
+}
+#postForm button {
+  margin-top: 10px;
+}
+.navbutton:hover {
+  background-color: white;
+  color: #000 !important;
+}

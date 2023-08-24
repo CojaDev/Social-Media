@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Marcetic</title>
+  </head>
+  <body>
+    <div class="logo">
+      <img src="img/logo.png" />
+    </div>
+    <h1>Najbolja Drustvena Mreza</h1>
+    <div class="main-wrapper">
+      <form id="loginForm">
+        <h2>Login</h2>
+        <div>
+          <label>Email:</label>
+          <input
+            type="email"
+            name="email"
+            id="login_email"
+            placeholder="Unesi svoj Email"
+          />
+        </div>
+        <div>
+          <label>Lozinka:</label>
+          <input
+            type="password"
+            name="Lozinka"
+            id="login_lozinka"
+            placeholder="Unesi svoju Lozinku"
+          />
+          <button class="show2" id="show2">Show</button>
+        </div>
+        <div>
+          <button>Uloguj Se</button>
+        </div>
+      </form>
+    </div>
+    <div class="no-acc-register">
+      <p>Nemas Nalog?</p>
+      <button id="registracija">Registruj se!</button>
+    </div>
+    <div class="custom-modal">
+      <button id="closeModal">X</button>
+      <form action="" id="registrationForm">
+        <h2>Registracija</h2>
+        <div>
+          <label>Korisnicko Ime:</label>
+          <input
+            type="text"
+            name="korisnicko_ime"
+            id="korisnicko_ime"
+            placeholder="Unesi svoje Ime"
+          />
+        </div>
+        <div>
+          <label>Email:</label>
+          <input
+            type="email"
+            name="register_email"
+            id="email"
+            placeholder="Unesi svoj Email"
+          />
+        </div>
+        <div>
+          <label>Lozinka:</label>
+          <input
+            type="password"
+            name="register_lozinka"
+            id="lozinka"
+            placeholder="Unesi svoju Lozinku"
+          />
+          <button class="show" id="show">Show</button>
+        </div>
+        <div>
+          <label>Ponovi Lozinku:</label>
+          <input
+            type="password"
+            name="ponovi_lozinku"
+            id="ponovi_lozinku"
+            placeholder="Ponovi svoju Lozinku"
+          />
+        </div>
+        <div>
+          <button>Uloguj Se</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="js/Validator.js"></script>
+    <script src="js/Session.js"></script>
+    <script src="js/User.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

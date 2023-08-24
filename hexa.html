@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="sr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom shadow"
+    >
+      <div class="container">
+        <form class="d-flex">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success show3" type="submit">
+            Search
+          </button>
+        </form>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav mb-2 mb-lg-0 lista">
+            <li class="nav-item">
+              <a class="nav-link border active navbutton" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link border ms-1 me-1 active navbutton" href="#"
+                >Profile</a
+              >
+            </li>
+            <li class="nav-item dropdown profilna">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" id="editAccount" href="#"
+                    >Izmeni Profil</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" id="logout" href="#">Odjavi Se</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container main">
+      <div class="row">
+        <div class="col-lg-3 col-md-3">
+          <div class="inner-container left-side">
+            <img src="img/profile.jpg" class="profile" draggable="false" />
+            <p><b id="username"></b></p>
+            <p id="email"></p>
+            <hr />
+            <div class="d-flex justify-content-evenly">
+              <div>
+                <p class="mb-0"><b id="followers">90</b></p>
+                <p class="mb-0">Followers</p>
+              </div>
+              <div>
+                <p class="mb-0"><b id="posts">190</b></p>
+                <p class="mb-0">Posts</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <div class="inner-container center-side">
+            <form id="postForm" class="p-2">
+              <textarea
+                id="postContent"
+                class="shadow"
+                placeholder="O Cemu Razmisljas?"
+              ></textarea>
+              <button class="Post">Objavi</button>
+            </form>
+            <div id="allPostsWrapper"></div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3">
+          <div class="inner-container right-side">
+            <form id="postForm">
+              <textarea
+                id="postContent"
+                placeholder="O Cemu Razmisljas?"
+              ></textarea>
+              <button class="Post">Objavi</button>
+            </form>
+            <div id="allPostsWrapper"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="custom-modal">
+      <button id="closeModal">X</button>
+      <form id="editForm">
+        <h2>Izmeni Profil</h2>
+        <div>
+          <label>Korisnicko Ime:</label>
+          <input
+            type="text"
+            name="korisnicko_ime"
+            id="korisnicko_ime"
+            placeholder="Unesi svoje Ime"
+          />
+        </div>
+        <div>
+          <label>Email:</label>
+          <input
+            type="email"
+            name="edit_email"
+            id="edit_email"
+            placeholder="Unesi svoj Email"
+          />
+        </div>
+        <div>
+          <label>Lozinka:</label>
+          <input
+            type="password"
+            name="edit_lozinka"
+            id="edit_lozinka"
+            placeholder="Unesi svoju Lozinku"
+          />
+          <button class="sh" id="show">Show</button>
+        </div>
+
+        <div>
+          <button>Izmeni</button>
+        </div>
+      </form>
+      <hr />
+      <button id="deleteProfile">OBRISI PROFIL</button>
+    </div>
+  </body>
+  <script src="js/Session.js"></script>
+  <script src="js/User.js"></script>
+  <script src="js/Comment.js"></script>
+  <script src="js/Post.js"></script>
+  <script src="js/hexa.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"
+  ></script>
+</html>
