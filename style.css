@@ -154,7 +154,7 @@ form li {
 }
 .inner-container.center-side textarea {
   resize: none;
-  width: 100%;
+
   border: 0;
   padding: 10px;
   outline-color: #007afe;
@@ -172,7 +172,6 @@ form li {
   border: 2px solid #007afe;
 }
 .inner-container.inner-container.center-side button.Post {
-  width: 15%;
   background-color: #007afe;
   color: white;
   font-size: 18px;
