@@ -2,9 +2,9 @@
   margin: 0%;
   padding: 0%;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 body {
-  font-family: sans-serif;
   padding: 0px;
   background-color: rgb(23, 23, 22);
   background-size: cover;
