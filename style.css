@@ -3,6 +3,7 @@
   padding: 0%;
   box-sizing: border-box;
   font-family: sans-serif;
+  border-radius: 4px !important;
 }
 body {
   padding: 0px;
@@ -16,6 +17,9 @@ body {
 .container.main {
   padding: 40px;
 }
+button:disabled {
+  background-color: gray;
+}
 h1 {
   text-align: center;
   margin-bottom: 20px;
@@ -25,9 +29,7 @@ h2 {
 }
 .logo {
   max-width: 500px;
-
   text-align: center;
-
   min-width: 375px;
   margin: auto;
   margin-bottom: 10px;
@@ -116,7 +118,7 @@ form li {
   background-size: cover;
   width: 42px;
   height: 42px;
-  border-radius: 50%;
+  border-radius: 50% !important;
   border: 1px solid white;
   transition: 0.2s ease;
 }
@@ -149,7 +151,7 @@ form li {
 }
 .inner-container img.profile {
   width: 70%;
-  border-radius: 50%;
+  border-radius: 50% !important;
   display: block;
   margin: auto;
   border: 5px solid white;
@@ -215,8 +217,8 @@ form li {
   height: 38px;
   border-color: #007afe;
   border-left: 0px;
-  border-top-left-radius: 0%;
-  border-bottom-left-radius: 0%;
+  border-top-left-radius: 0% !important;
+  border-bottom-left-radius: 0% !important;
   width: 52px;
   font-size: 15px;
   margin-left: 170px;
@@ -240,7 +242,7 @@ form div input#login_lozinka {
   padding: 5px 15px;
 }
 #allPostsWrapper .single-post {
-  background-color: #eaeaea;
+  background-color: #eeeeee;
   padding: 15px;
   margin-top: 15px;
   color: #000;
@@ -263,7 +265,7 @@ form div input#login_lozinka {
   position: relative;
 }
 #allPostsWrapper .single-post .post-comments button:hover {
-  border-color: #eaeaea;
+  border-color: #eeeeee;
 }
 
 #allPostsWrapper .single-post .post-action {
@@ -311,7 +313,7 @@ form div input#login_lozinka {
   margin-top: 10px;
 }
 #postForm {
-  background-color: #eaeaea;
+  background-color: #eeeeee;
   border: 5px solid #007afe;
   min-height: 120px;
 }

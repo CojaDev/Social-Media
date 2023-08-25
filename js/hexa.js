@@ -8,9 +8,13 @@ if (session_id !== '') {
 
     document.querySelector('#username').innerText = user['username'];
     document.querySelector('#email').innerText = user['email'];
+    document.querySelector('#followers').innerText = user['followers'];
+    document.querySelector('#posts').innerText = user['posts'];
     if (
       document.querySelector('#username').innerText == '' &&
-      document.querySelector('#email').innerText == ''
+      document.querySelector('#email').innerText == '' &&
+      document.querySelector('#username').innerText == 'undefined' &&
+      document.querySelector('#email').innerText == 'undefined'
     ) {
       window.location.href = 'index.html';
       session.destroySession();
@@ -200,6 +204,12 @@ const removeMyPost = (btn) => {
 
   if (confirm(text) === true) {
     btn.closest('.single-post').remove();
+
+    let user = new User();
+
+    let numberOfPosts = parseInt(document.querySelector('#posts').innerText);
+    console.log(numberOfPosts);
+    user = user.postUpdate(session_id, numberOfPosts - 1);
 
     let post = new Post();
     post.delete(post_id);

@@ -3,6 +3,8 @@ class User {
   username = '';
   email = '';
   password = '';
+  followers = 0;
+  posts = 0;
   api_url = 'https://64deffe971c3335b2581fa0d.mockapi.io';
 
   create() {
@@ -10,8 +12,11 @@ class User {
       username: this.username,
       email: this.email,
       password: this.password,
+      followers: this.followers,
+      posts: this.posts,
     };
-
+    data.followers = 0;
+    data.posts = 0;
     data = JSON.stringify(data);
 
     fetch(this.api_url + '/Users', {
@@ -24,7 +29,10 @@ class User {
       .then((response) => response.json())
       .then((data) => {
         console.log('Korisnik Kreiran!');
-
+        this.posts = 0;
+        this.followers = 2;
+        console.log(this.posts);
+        console.log(this.followers);
         let session = new Session();
         session.user_id = data.id;
         session.startSession();
@@ -97,5 +105,23 @@ class User {
 
         window.location.href = '/';
       });
+  }
+
+  postUpdate(session_id, posts) {
+    console.log(posts);
+    let data = {
+      posts: posts,
+    };
+
+    data = JSON.stringify(data);
+    fetch(this.api_url + '/Users/' + session_id, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: data,
+    })
+      .then((response) => response.json())
+      .then((data) => {});
   }
 }

@@ -5,7 +5,7 @@ class Post {
   likes = '';
   api_url = 'https://64deffe971c3335b2581fa0d.mockapi.io';
 
-  async create(post_contner) {
+  async create(post_content) {
     let session = new Session();
     session_id - session.getSession();
 
@@ -14,6 +14,13 @@ class Post {
       content: this.post_content,
       likes: 0,
     };
+
+    let user = new User();
+
+    let numberOfPosts = parseInt(document.querySelector('#posts').innerText);
+    console.log(numberOfPosts);
+    user = user.postUpdate(session_id, numberOfPosts + 1);
+
     data = JSON.stringify(data);
 
     let response = await fetch(this.api_url + '/posts', {
