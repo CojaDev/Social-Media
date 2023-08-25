@@ -40,4 +40,10 @@ class Comment {
     });
     return post_comments;
   }
+
+  delete(post_id) {
+    return fetch(this.api_url + '/comments/' + post_id, {
+      method: 'DELETE',
+    });
+  }
 }

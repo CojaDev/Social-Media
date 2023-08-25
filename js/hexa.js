@@ -100,7 +100,7 @@ document.querySelector('#postForm').addEventListener('submit', (e) => {
     <div class="post-content">${post.content}</div>
     
       <div class="post-action">
-        <p><b>Autor:</b> ${current_user.username}</p>
+        <p><b>User:</b> ${current_user.username}</p>
         <div>
           <button onclick="likePost(this)" class="likePostJS like-btn"><span>${post.likes}</span> Likes</button>
           <button onclick="commentPost(this)" class="comment-btn">Comments</button>
@@ -138,9 +138,16 @@ async function getAllPosts() {
 
       let comments_html = '';
       if (comments.length > 0) {
-        comments.forEach((comment) => {
-          comments_html += `<div class="single-comment"><p><b>Autor:</b> ${user.username}</p>${comment.content}</div>`;
-        });
+        for (const comment of comments) {
+          let commentUser = new User();
+          commentUser = await commentUser.get(comment.user_id);
+
+          comments_html += `
+            <div class="single-comment">
+              <p><b>User:</b> ${commentUser.username}</p>
+              ${comment.content}
+            </div>`;
+        }
       }
 
       let html = document.querySelector('#allPostsWrapper').innerHTML;
@@ -149,7 +156,7 @@ async function getAllPosts() {
     <div class="post-content">${post.content}</div>
     
       <div class="post-action">
-        <p><b>Autor:</b> ${user.username}</p>
+        <p><b>User:</b> ${user.username}</p>
         <div>
           <button onclick="likePost(this)" class="likePost like-btn"><span>${post.likes}</span> Likes</button>
           <button onclick="commentPost(this)" class="comment-btn">Comments</button>
@@ -174,22 +181,25 @@ async function getAllPosts() {
   });
 }
 getAllPosts();
-const commentPostSubmit = (e) => {
+const commentPostSubmit = async (e) => {
   e.preventDefault();
 
   let btn = e.target;
-
   let main_post_el = btn.closest('.single-post');
   let post_id = main_post_el.getAttribute('data-post_id');
-
-  let html = main_post_el.querySelector('.post-comments').innerHTML;
-
   let comment_value = main_post_el.querySelector('input').value;
 
-  main_post_el.querySelector(
-    '.post-comments'
-  ).innerHTML += `<div class="single-comment">${comment_value}</div>`;
+  let user = new User();
+  let user_info = await user.get(session_id);
 
+  main_post_el.querySelector('.post-comments').innerHTML += `
+    <div class="single-comment">
+      <p><b>User:</b> ${user_info.username}</p>
+      ${comment_value}
+    </div>
+  `;
+
+  // Create the comment
   let comment = new Comment();
   comment.content = comment_value;
   comment.user_id = session_id;
@@ -203,16 +213,28 @@ const removeMyPost = (btn) => {
   let text = 'Da li ste sigurni da zelite da obrisete Objavu?';
 
   if (confirm(text) === true) {
+    // Remove the post HTML element
     btn.closest('.single-post').remove();
+
+    // Delete the post and its associated comments
+    let post = new Post();
+    post.delete(post_id).then(() => {
+      // Fetch and delete comments associated with the post
+      let comments = new Comment();
+      comments.get(post_id).then((postComments) => {
+        postComments.forEach((comment) => {
+          comments.delete(comment.id).then(() => {
+            console.log(`Comment with ID ${comment.id} deleted.`);
+          });
+        });
+      });
+    });
 
     let user = new User();
 
+    // Update the number of posts
     let numberOfPosts = parseInt(document.querySelector('#posts').innerText);
-    console.log(numberOfPosts);
-    user = user.postUpdate(session_id, numberOfPosts - 1);
-
-    let post = new Post();
-    post.delete(post_id);
+    user.postUpdate(session_id, numberOfPosts - 1);
   }
 };
 

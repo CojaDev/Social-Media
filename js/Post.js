@@ -5,7 +5,7 @@ class Post {
   likes = '';
   api_url = 'https://64deffe971c3335b2581fa0d.mockapi.io';
 
-  async create(post_content) {
+  async create() {
     let session = new Session();
     session_id - session.getSession();
 
@@ -18,7 +18,7 @@ class Post {
     let user = new User();
 
     let numberOfPosts = parseInt(document.querySelector('#posts').innerText);
-    console.log(numberOfPosts);
+
     user = user.postUpdate(session_id, numberOfPosts + 1);
 
     data = JSON.stringify(data);
@@ -57,13 +57,19 @@ class Post {
       .then((data) => {});
   }
 
-  delete(post_id) {
-    fetch(this.api_url + '/posts/' + post_id, {
-      method: 'DELETE',
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        alert('Post Je Obrisan!!');
+  async delete(post_id) {
+    try {
+      const response = await fetch(this.api_url + '/posts/' + post_id, {
+        method: 'DELETE',
       });
+
+      if (response.ok) {
+        console.log('Post deleted successfully.');
+      } else {
+        console.error('Failed to delete post.');
+      }
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
   }
 }
